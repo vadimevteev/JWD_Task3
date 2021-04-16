@@ -2,9 +2,10 @@ package by.javatr.task2.runner;
 
 import by.javatr.task2.exception.ArraySizeException;
 import by.javatr.task2.exception.NullArrayException;
-import by.javatr.task2.unit.MaxElementsSorting;
-import by.javatr.task2.unit.MinElementsSorting;
-import by.javatr.task2.unit.SumElementsSorting;
+import by.javatr.task2.unit.MaxElementComparator;
+import by.javatr.task2.unit.MinElementComparator;
+import by.javatr.task2.unit.Sorting;
+import by.javatr.task2.unit.SumElementsComparator;
 
 import java.util.Arrays;
 
@@ -13,9 +14,13 @@ public class Runner {
         try {
             int[][] array = new int[][]{{22}, {5, 8, 9, 1}, {4, 8, -101}, {0}};
 
-            int[][] sortedArr1 = MaxElementsSorting.ascendingSortMaxElement(array);
-            int[][] sortedArr2 = MinElementsSorting.ascendingSortMinElement(array);
-            int[][] sortedArr3 = SumElementsSorting.ascendingSortSumRowsElements(array);
+            MaxElementComparator comparatorMaxElement = new MaxElementComparator();
+            MinElementComparator comparatorMinElement = new MinElementComparator();
+            SumElementsComparator comparatorSumElement = new SumElementsComparator();
+
+            int[][] sortedArr1 = Sorting.BubbleSort(array.clone(), comparatorMaxElement,false);
+            int[][] sortedArr2 = Sorting.BubbleSort(array.clone(), comparatorMinElement,true);
+            int[][] sortedArr3 = Sorting.BubbleSort(array.clone(), comparatorSumElement,false);
             System.out.println(Arrays.deepToString(sortedArr1));
             System.out.println(Arrays.deepToString(sortedArr2));
             System.out.println(Arrays.deepToString(sortedArr3));
