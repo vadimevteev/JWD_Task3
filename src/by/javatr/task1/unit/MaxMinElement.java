@@ -7,17 +7,27 @@ import by.javatr.task1.exception.NullArrayException;
 public class MaxMinElement {
     public static int findMinElement(Array array) throws NullArrayException, ArraySizeException {
 
-        if(array.getArray().length == 0)
-            throw new NullArrayException("Array is empty!");
-        int[] arr = ArraySort.BubbleSort(array);
-        return arr[0];
+        if(array == null || array.getArray().length == 0)
+            throw new NullArrayException("Array is null or empty!");
+
+        int arr[] = array.getArray();
+        int min = arr[0];
+        for(int i = 0; i < arr.length; i++)
+            if(arr[i] < min)
+                min = arr[i];
+        return min;
     }
 
     public static int findMaxElement(Array array) throws NullArrayException, ArraySizeException {
 
-        if(array.getArray().length == 0)
-            throw new NullArrayException("Array is empty!");
-        int[] arr = ArraySort.BubbleSort(array);
-        return arr[arr.length - 1];
+        if(array == null || array.getArray().length == 0)
+            throw new NullArrayException("Array is null or empty!");
+
+        int arr[] = array.getArray();
+        int max = arr[0];
+        for(int i = 0; i < arr.length; i++)
+            if(arr[i] > max)
+                max = arr[i];
+        return max;
     }
 }

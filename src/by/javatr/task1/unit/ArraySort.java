@@ -18,7 +18,7 @@ public class ArraySort {
         array[ind2] = tmp;
     }
 
-    public static int[] BubbleSort(Array array) throws NullArrayException, ArraySizeException {
+    public static void BubbleSort(Array array) throws NullArrayException, ArraySizeException {
         if(array == null)
             throw new NullArrayException("Array is null");
 
@@ -34,10 +34,9 @@ public class ArraySort {
             }
         }
 
-        return arrNew;
     }
 
-    public static int[] SelectionSort(Array array) throws NullArrayException, ArraySizeException {
+    public static void SelectionSort(Array array) throws NullArrayException, ArraySizeException {
         if(array == null)
             throw new NullArrayException("Array is null");
 
@@ -51,11 +50,9 @@ public class ArraySort {
             }
             swap(arrNew, left, minInd);
         }
-
-        return arrNew;
     }
 
-    public static int[] InsertionSort(Array array) throws NullArrayException, ArraySizeException {
+    public static void InsertionSort(Array array) throws NullArrayException, ArraySizeException {
         if (array == null)
             throw new NullArrayException("Array is null");
 
@@ -70,7 +67,5 @@ public class ArraySort {
             }
             arrNew[i + 1] = value;
         }
-
-        return arrNew;
     }
 }

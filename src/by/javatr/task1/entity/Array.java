@@ -1,22 +1,19 @@
 package by.javatr.task1.entity;
 
 import by.javatr.task1.exception.ArraySizeException;
-import by.javatr.task1.exception.NullArrayException;
 
 
 public class Array {
-    private int[] array;
 
+    private static final int START_SIZE = 0;
+    private int[] array;
     public Array(){
-        this.array = new int[0];
+        this.array = new int[START_SIZE];
     }
 
-    public Array(int[] array) throws NullArrayException {
+    public Array(int[] array) {
 
-        if(array == null)
-            throw new NullArrayException("Array is null!");
-
-        this.array = array.clone();
+        this.array = array;
     }
 
     public Array(int size) throws ArraySizeException {
@@ -25,6 +22,7 @@ public class Array {
             throw new ArraySizeException("Incorrect size of array!");
 
         this.array = new int[size];
+
     }
 
     public int getElement(int index) throws ArraySizeException {
@@ -33,6 +31,16 @@ public class Array {
             throw new ArraySizeException("Index is out of the array`s size");
 
         return this.array[index];
+    }
+
+    public int getFirstIndex(int elementToFind){
+        int index = -1;
+        for(int i = 0; i < array.length;i++)
+            if(array[i] == elementToFind){
+                index = i;
+                break;
+            }
+        return index;
     }
 
     public void setElement(int element,int index) throws ArraySizeException {
@@ -44,14 +52,9 @@ public class Array {
     }
 
     public int[] getArray() {
-        return array.clone();
+        return array;
     }
 
-    public void setArray(int[] array) throws NullArrayException {
-        if(array == null)
-            throw new NullArrayException("Array is null!");
-        this.array = array.clone();
-    }
 
 
     @Override

@@ -42,7 +42,7 @@ public class Creator {
         StringBuilder startValues = new StringBuilder();
         int count = 0;
         while(input.hasNext()){
-            startValues.append(input.next());
+            startValues.append(input.nextLine());
             count++;
         }
 

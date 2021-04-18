@@ -10,6 +10,7 @@ public class BinarySearch {
 
         int index = -1;
         if(array.getArray().length > 0) {
+            //предполагаем, что массив уже отсортирован
             int[] sortedArray = array.getArray();
             int low = 0;
             int high = sortedArray.length - 1;
